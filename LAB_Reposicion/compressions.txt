@@ -1,7 +1,0 @@
-LZW
-prueba.txt
-prueba.lzw
-C:\Users\derly\Documents\Universidad\Quinto ciclo\ED II\Git\LAB_Reposicion\LAB_Reposicion\decompress\prueba.txt
-0
-0
-0
