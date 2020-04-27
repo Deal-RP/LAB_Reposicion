@@ -22,7 +22,7 @@ namespace LAB_Reposicion.Controllers.LAB_4
 
             var Original = Archivos.Find(c => Path.GetFileNameWithoutExtension(c.Nombre) == Path.GetFileNameWithoutExtension(archivo.FileName));
 
-            var path = LZW.Descomprimir(archivo, Original.NombreOriginal);
+            var path = LZW.Descomprimir(archivo, Original == null ? $"{Path.GetFileNameWithoutExtension(archivo.FileName)}.txt" : Original.NombreOriginal);
 
             var newFile = new FileInfo(path);
 
@@ -30,7 +30,7 @@ namespace LAB_Reposicion.Controllers.LAB_4
                 new NodoArchivo
                 {
                     Algoritmo = "LZW",
-                    NombreOriginal = Original.NombreOriginal,
+                    NombreOriginal = Original == null ? $"{Path.GetFileNameWithoutExtension(archivo.FileName)}.txt" : Original.NombreOriginal,
                     Nombre = archivo.FileName,
                     RutaArchivo = path,
                     RazonCompresion = 0,
