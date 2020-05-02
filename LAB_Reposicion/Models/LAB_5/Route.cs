@@ -10,7 +10,7 @@ namespace LAB_Reposicion.Models.LAB_5
     {
         private static string routeDirectory = Environment.CurrentDirectory;
 
-        public static void CifradoVertical(NumbersDataTaken info)
+        public static void CipherVertical(NumbersDataTaken info)
         {
             Directory.CreateDirectory("temp");
             using (var reader = new BinaryReader(info.File.OpenReadStream()))
@@ -53,7 +53,7 @@ namespace LAB_Reposicion.Models.LAB_5
             }
         }
 
-        public static void DecifradoVertical(NumbersDataTaken info)
+        public static void DecipherVertical(NumbersDataTaken info)
         {
             Directory.CreateDirectory("temp");
             using (var reader = new BinaryReader(info.File.OpenReadStream()))
@@ -103,7 +103,7 @@ namespace LAB_Reposicion.Models.LAB_5
             }
         }
 
-        public static void CifradoEspiral(NumbersDataTaken info)
+        public static void CipherEspiral(NumbersDataTaken info)
         {
             Directory.CreateDirectory("temp");
             using (var reader = new BinaryReader(info.File.OpenReadStream()))
@@ -187,7 +187,7 @@ namespace LAB_Reposicion.Models.LAB_5
             }
         }
 
-        public static void DecifradoEspiral(NumbersDataTaken info)
+        public static void DechipherEspiral(NumbersDataTaken info)
         {
             Directory.CreateDirectory("temp");
             using (var reader = new BinaryReader(info.File.OpenReadStream()))

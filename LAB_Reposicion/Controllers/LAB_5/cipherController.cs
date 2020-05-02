@@ -15,28 +15,28 @@ namespace LAB_Reposicion.Controllers.LAB_5
         [HttpPost, Route("zigzag")]
         public async Task<FileStreamResult> cifrarZigZag([FromForm] NumbersDataTaken requestdata)
         {
-            ZigZag.Cifrar(requestdata);
+            ZigZag.Cipher(requestdata);
             return await Download($"temp\\{requestdata.Name}.txt");
         }
 
         [HttpPost, Route("caesar")]
         public async Task<FileStreamResult> cifrarCesar([FromForm] ValuesDataTaken requestdata)
         {
-            Cesar.Cifrar(requestdata);
+            Cesar.Cipher(requestdata);
             return await Download($"temp\\{requestdata.Name}.txt");
         }
 
         [HttpPost, Route("rutaVertical")]
         public async Task<FileStreamResult> cifrarVertical(string nombre, [FromForm] NumbersDataTaken requestdata)
         {
-            Route.CifradoVertical(requestdata);
+            Route.CipherVertical(requestdata);
             return await Download($"temp\\{requestdata.Name}.txt");
         }
 
         [HttpPost, Route("rutaEspiral")]
         public async Task<FileStreamResult> cifrarEspiral(string nombre, [FromForm] NumbersDataTaken requestdata)
         {
-            Route.CifradoEspiral(requestdata);
+            Route.CipherEspiral(requestdata);
             return await Download($"temp\\{requestdata.Name}.txt");
         }
 

@@ -68,7 +68,7 @@ namespace LAB_Reposicion.Models.LAB_5
             }
         }
 
-        public static void Cifrar(ValuesDataTaken info)
+        public static void Cipher(ValuesDataTaken info)
         {
             Directory.CreateDirectory("temp");
             ObtainsDictonary(info.key1, 1);
@@ -107,7 +107,7 @@ namespace LAB_Reposicion.Models.LAB_5
             }
         }
 
-        public static void Decifrar(ValuesDataTaken info)
+        public static void Decipher(ValuesDataTaken info)
         {
             Directory.CreateDirectory("temp");
             ObtainsDictonary(info.key1, 2);

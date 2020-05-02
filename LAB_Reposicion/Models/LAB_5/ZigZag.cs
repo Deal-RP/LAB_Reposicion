@@ -9,7 +9,7 @@ namespace LAB_Reposicion.Models.LAB_5
     {
         private static string routeDirectory = Environment.CurrentDirectory;
 
-        public static void Cifrar(NumbersDataTaken info)
+        public static void Cipher(NumbersDataTaken info)
         {
             Directory.CreateDirectory("temp");
             using (var reader = new BinaryReader(info.File.OpenReadStream()))
@@ -80,7 +80,7 @@ namespace LAB_Reposicion.Models.LAB_5
             }
         }
 
-        public static void Decifrar(NumbersDataTaken info)
+        public static void Decipher(NumbersDataTaken info)
         {
             Directory.CreateDirectory("temp");
             using (var reader = new BinaryReader(info.File.OpenReadStream()))

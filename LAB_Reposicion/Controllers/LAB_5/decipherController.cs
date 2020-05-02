@@ -15,28 +15,28 @@ namespace LAB_Reposicion.Controllers.LAB_5
         [HttpPost, Route("zigzag")]
         public async Task<FileStreamResult> decifrarZigZag([FromForm] NumbersDataTaken requestdata)
         {
-            ZigZag.Decifrar(requestdata);
+            ZigZag.Decipher(requestdata);
             return await Download($"temp\\{requestdata.Name}.txt");
         }
 
         [HttpPost, Route("caesar")]
         public async Task<FileStreamResult> decifrarCesar([FromForm] ValuesDataTaken requestdata)
         {
-            Cesar.Decifrar(requestdata);
+            Cesar.Decipher(requestdata);
             return await Download($"temp\\{requestdata.Name}.txt");
         }
 
         [HttpPost, Route("rutaVertical")]
         public async Task<FileStreamResult> decifrarVertical(string nombre, [FromForm] NumbersDataTaken requestdata)
         {
-            Route.DecifradoVertical(requestdata);
+            Route.DecipherVertical(requestdata);
             return await Download($"temp\\{requestdata.Name}.txt");
         }
 
         [HttpPost, Route("rutaEspiral")]
         public async Task<FileStreamResult> decifrarEspiral(string nombre, [FromForm] NumbersDataTaken requestdata)
         {
-            Route.DecifradoEspiral(requestdata);
+            Route.DechipherEspiral(requestdata);
             return await Download($"temp\\{requestdata.Name}.txt");
         }
 
