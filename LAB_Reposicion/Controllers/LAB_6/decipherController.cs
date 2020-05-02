@@ -16,7 +16,7 @@ namespace LAB_Reposicion.Controllers
         [HttpPost, Route("caesar2")]
         public async Task<FileStreamResult> Decifrar([FromForm] CeasearDataTaken requestdata)
         {
-            Ceasar2.CifrarDecifrado(requestdata, 2);
+            Ceasar2.CipherDechiper(requestdata, 2);
             return await Download($"temp\\{requestdata.File.FileName}");
         }
 

@@ -9,12 +9,13 @@ namespace LAB_Reposicion.Models
     {
         private static Dictionary<int, int> alfa = new Dictionary<int, int>();
 
-        static void ObtenerDic(BigInteger key, int opc)
+        static void ObtainsDic(BigInteger key, int opc)
         {
             alfa = new Dictionary<int, int>();
             var contOriginal = 65;
             var contNuevo = (int)BigInteger.ModPow(key, 1, new BigInteger(26));
             var comienzo = 65;
+
 
             do
             {
@@ -45,7 +46,8 @@ namespace LAB_Reposicion.Models
             } while (contOriginal < 91);
         }
 
-        public static void CifrarDecifrado(CeasearDataTaken info, int opc)
+
+        public static void CipherDechiper(CeasearDataTaken info, int opc)
         {
             Directory.CreateDirectory("temp");
             var key = 0;
@@ -56,15 +58,16 @@ namespace LAB_Reposicion.Models
                 switch (line.Length)
                 {
                     case 2:
-                        key = Diffie_Hellman.ObtenerKey(new BigInteger(Convert.ToInt32(line[0])), new BigInteger(Convert.ToInt32(line[1])));
+                        key = Diffie_Hellman.ObtainsKey(new BigInteger(Convert.ToInt32(line[0])), new BigInteger(Convert.ToInt32(line[1])));
                         break;
                     case 3:
-                        key = RSA.cifradoDecifrado(new BigInteger(Convert.ToInt32(line[2])), new BigInteger(Convert.ToInt32(line[1])), new BigInteger(Convert.ToInt32(line[0])));
+                        key = RSA.CipherDecipher(new BigInteger(Convert.ToInt32(line[2])), new BigInteger(Convert.ToInt32(line[1])), new BigInteger(Convert.ToInt32(line[0])));
                         break;
                 }
             }
 
-            ObtenerDic(new BigInteger(key), opc);
+            ObtainsDic(new BigInteger(key), opc);
+
 
             using (var reader = new BinaryReader(info.File.OpenReadStream()))
             {

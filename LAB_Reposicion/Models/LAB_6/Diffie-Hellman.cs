@@ -6,7 +6,7 @@ namespace LAB_Reposicion.Models
 {
     public class Diffie_Hellman
     {
-        public static void GenerarLlaves(KeysDataTaken info)
+        public static void GenerateKeys(KeysDataTaken info)
         {
             Directory.CreateDirectory("temp");
             var g = new BigInteger(43);
@@ -19,7 +19,8 @@ namespace LAB_Reposicion.Models
             File.WriteAllText($"temp\\K2.txt", $"{b}|{(int)BigInteger.ModPow(g, a, p)}");
         }
 
-        public static int ObtenerKey(BigInteger privada, BigInteger publica)
+
+        public static int ObtainsKey(BigInteger privada, BigInteger publica)
         {
             return (int)BigInteger.ModPow(publica, privada, new BigInteger(107));
         }

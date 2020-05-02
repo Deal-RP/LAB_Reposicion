@@ -22,12 +22,12 @@ namespace LAB_Reposicion.Models
             return true;
         }
 
-        public static int cifradoDecifrado(BigInteger clave, BigInteger key, BigInteger n)
+        public static int CipherDecipher(BigInteger clave, BigInteger key, BigInteger n)
         {
             return (int)BigInteger.ModPow(clave, key, n);
         }
 
-        public static void GenerarLlaves(KeysDataTaken info)
+        public static void GenerateKeys(KeysDataTaken info)
         {
             Directory.CreateDirectory("temp");
             if (SonPrimos(info.key1) && SonPrimos(info.key2) && info.key1 > 1 && info.key2 > 1)
@@ -99,8 +99,8 @@ namespace LAB_Reposicion.Models
                         }
                     }
 
-                    File.WriteAllText($"temp\\K1.txt", $"{n}|{e}|{cifradoDecifrado(new BigInteger(info.clave), tablaMod[1, 1], n)}");
-                    File.WriteAllText($"temp\\K2.txt", $"{n}|{tablaMod[1, 1]}|{cifradoDecifrado(new BigInteger(info.clave), e, n)}");
+                    File.WriteAllText($"temp\\K1.txt", $"{n}|{e}|{CipherDecipher(new BigInteger(info.clave), tablaMod[1, 1], n)}");
+                    File.WriteAllText($"temp\\K2.txt", $"{n}|{tablaMod[1, 1]}|{CipherDecipher(new BigInteger(info.clave), e, n)}");
                 }
             }
         }

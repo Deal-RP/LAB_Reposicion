@@ -16,21 +16,21 @@ namespace LAB_Reposicion.Controllers
         [HttpGet, Route("getPublicKey/DIFFIE")]
         public async Task<FileStreamResult> GetKeyDiffie([FromForm] KeysDataTaken requestdata)
         {
-            Diffie_Hellman.GenerarLlaves(requestdata);
+            Diffie_Hellman.GenerateKeys(requestdata);
             return await DownloadZip();
         }
 
         [HttpGet, Route("getPublicKey/RSA")]
         public async Task<FileStreamResult> GetKeyRSA([FromForm] KeysDataTaken requestdata)
         {
-            RSA.GenerarLlaves(requestdata);
+            RSA.GenerateKeys(requestdata);
             return await DownloadZip();
         }
 
         [HttpPost, Route("caesar2")]
         public async Task<FileStreamResult> Decifrar([FromForm] CeasearDataTaken requestdata)
         {
-            Ceasar2.CifrarDecifrado(requestdata, 1);
+            Ceasar2.CipherDechiper(requestdata, 1);
             return await Download($"temp\\{requestdata.File.FileName}");
         }
 
