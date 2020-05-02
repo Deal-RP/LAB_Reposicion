@@ -11,7 +11,7 @@ namespace LAB_Reposicion.Models.LAB_5
         private static Dictionary<int, int> alfa = new Dictionary<int, int>();
         private static string routeDirectory = Environment.CurrentDirectory;
 
-        static void ObtenerDic(string key, int opc)
+        static void ObtainsDictonary(string key, int opc)
         {
             alfa = new Dictionary<int, int>();
             key = key.ToUpper();
@@ -71,7 +71,7 @@ namespace LAB_Reposicion.Models.LAB_5
         public static void Cifrar(ValuesDataTaken info)
         {
             Directory.CreateDirectory("temp");
-            ObtenerDic(info.key1, 1);
+            ObtainsDictonary(info.key1, 1);
 
             using (var reader = new BinaryReader(info.File.OpenReadStream()))
             {
@@ -110,7 +110,7 @@ namespace LAB_Reposicion.Models.LAB_5
         public static void Decifrar(ValuesDataTaken info)
         {
             Directory.CreateDirectory("temp");
-            ObtenerDic(info.key1, 2);
+            ObtainsDictonary(info.key1, 2);
 
             using (var reader = new BinaryReader(info.File.OpenReadStream()))
             {

@@ -12,7 +12,7 @@ namespace LAB_Reposicion.Controllers
     public class PeliculasController : ControllerBase
     {
         [HttpGet]
-        public List<Pelicula> DesplegarLista()
+        public List<Pelicula> DetachList()
         {
             var cont = InstancePeliculas.Instance.listPelicula.Count < 10 ? InstancePeliculas.Instance.listPelicula.Count() : 10;
             var start = InstancePeliculas.Instance.listPelicula.Count < 10 ? 0 : InstancePeliculas.Instance.listPelicula.Count() - 10;
@@ -21,13 +21,14 @@ namespace LAB_Reposicion.Controllers
 
             for (int i = 0; i < cont; i++)
             {
+                Console.WriteLine("/n");
                 datosRetornar.Add(stackPelicula.Pop());
             }
             return datosRetornar;
         }
 
         [HttpPost]
-        public void ObtenerDatos([FromForm] Pelicula nuevaPelicula)
+        public void ObtainMovies([FromForm] Pelicula nuevaPelicula)
         {
             InstancePeliculas.Instance.listPelicula.Add(nuevaPelicula);
         }
